@@ -1,0 +1,19 @@
+.navBar{
+    background-image: linear-gradient(315deg, #136692 0%, #17144aa5 80%);
+    position: fixed;
+  display: grid;
+  grid-template-columns: 3fr 3fr 11fr 3fr 2fr ;
+  padding-top: 5px;
+    width: 100%;
+    max-height: 50px;
+    gap: 5px;
+}
+.logoName{
+  /* margin-left: 50px; */
+  text-align: center;
+  background: -webkit-linear-gradient(#00308F, #7FFFD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px rgb(17, 16, 16);
+
+}

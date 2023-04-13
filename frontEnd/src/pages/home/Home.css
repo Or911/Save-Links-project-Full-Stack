@@ -1,0 +1,7 @@
+.homePage{
+    padding: 150px 0 0 120px;
+    display: grid;
+    grid-template-columns: auto  auto;
+    gap: 40px;
+    
+}
