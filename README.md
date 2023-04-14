@@ -27,3 +27,4 @@ create new user and login and add links how mach you want
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+have fun!
