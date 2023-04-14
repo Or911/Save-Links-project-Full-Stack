@@ -1,9 +1,9 @@
 import { useNavigate} from 'react-router-dom';
-import CardLogin from './CardLogin'
+import CardLogin from './components/CardLogin/CardLogin'
 import './Login.css'
 import $ from 'jquery'
 
-export default function Login({PORT_SERVER , eventonclick , allowAlert}){
+export default function Login({PORT_SERVER , eventonclick , displayAlertToTheUser}){
     const navigate = useNavigate();
 
     function logInOrSign(userInput , statusReq){
@@ -19,10 +19,10 @@ export default function Login({PORT_SERVER , eventonclick , allowAlert}){
             .then(token => {
                 localStorage.setItem("token" ,token.token )
                 eventonclick(userInput.username)
-                allowAlert({typeMassage:"success" ,massage:`hi ${userInput.username}`  , toOpen:true})
+                displayAlertToTheUser({typeMassage:"success" ,massage:`hi ${userInput.username}`  , toOpen:true})
                 navigate('/home');
             }).catch(()=>{
-                allowAlert({typeMassage:"error" ,massage:`Username or password is incorrect`  , toOpen:true})
+                displayAlertToTheUser({typeMassage:"error" ,massage:`Username or password is incorrect`  , toOpen:true})
             })
         }
         else {
@@ -35,7 +35,7 @@ export default function Login({PORT_SERVER , eventonclick , allowAlert}){
             })
             .then(res => {
                 console.log(res)
-                allowAlert({typeMassage:"success" ,massage:res.success  , toOpen:true})
+                displayAlertToTheUser({typeMassage:"success" ,massage:res.success  , toOpen:true})
             })
 
         }

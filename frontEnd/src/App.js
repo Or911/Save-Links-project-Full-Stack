@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Background from "./components/Background";
 import NavBar from "./components/NavBar/NavBar";
 import Login from "./pages/Login/Login";
 import Home from "./pages/home/Home";
@@ -15,14 +14,14 @@ function App() {
     userConnected: null,
   });
 
-  function logInOrOut(name) {
+  function toggleLoginStatus(name) {
     if (name !== undefined) {
       updateUser({ ...user, userConnected: name });
     } else {
       updateUser({...user ,userConnected:""})
     }
   }
-  function allowAlert(data){
+  function displayAlertToTheUser(data){
     setAlert(data)
   }
   function closeAlert(data){
@@ -31,12 +30,12 @@ function App() {
 
   return (
     <Router>
-      <Background />
-      <NavBar user={user.userConnected} eventonclick={logInOrOut}/>
+      <div className="background"></div>
+      <NavBar user={user.userConnected} eventonclick={toggleLoginStatus}/>
       <Routes>
-        <Route path="/" element={<Login eventonclick={logInOrOut}  PORT_SERVER={PORT_SERVER} allowAlert={allowAlert}/>} />
-        <Route path="/home" element={<Home PORT_SERVER={PORT_SERVER} allowAlert={allowAlert}/>} />
-        <Route path="/create" element={<Create PORT_SERVER={PORT_SERVER} allowAlert={allowAlert}/>} />
+        <Route path="/" element={<Login eventonclick={toggleLoginStatus}  PORT_SERVER={PORT_SERVER} displayAlertToTheUser={displayAlertToTheUser}/>} />
+        <Route path="/home" element={<Home PORT_SERVER={PORT_SERVER} displayAlertToTheUser={displayAlertToTheUser}/>} />
+        <Route path="/create" element={<Create PORT_SERVER={PORT_SERVER} displayAlertToTheUser={displayAlertToTheUser}/>} />
       </Routes>
       <SimpleSnackbar typeMassage={alert.typeMassage}  massage={alert.massage} toOpen={alert.toOpen} closeAlert={closeAlert}/>
     </Router>

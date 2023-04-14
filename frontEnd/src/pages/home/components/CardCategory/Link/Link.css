@@ -1,0 +1,34 @@
+a{
+ color: #002244;
+}
+
+.link-line{
+    background-color: #add8e6aa;
+    margin: 3%;
+    border-radius: 5px; 
+}
+.link-line  img{
+    display: inline;
+    padding-right: 4px;
+    
+}
+.link-line  h5{
+    display: inline;
+}
+.deleteLink{
+    position: absolute;
+    right: 2%;
+}
+.deleteLink:hover{
+    color: red;
+    transition: 0.5s;
+}
+.link-line-cover{
+    height: 25px;
+}
+.link-line:hover{
+    transition: 0.3s;
+    height: 23px;
+    box-shadow: 3px 3px 2px;
+
+}

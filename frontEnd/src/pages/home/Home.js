@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import CardCategory from "./CardCategory/CardCategory";
+import CardCategory from "./components/CardCategory/CardCategory";
 import "./Home.css";
 import $ from "jquery";
-export default function Home({ PORT_SERVER , allowAlert}) {
+export default function Home({ PORT_SERVER , displayAlertToTheUser}) {
   const [lists, setLists] = useState([]);
 
   function getList() {
@@ -34,7 +34,7 @@ export default function Home({ PORT_SERVER , allowAlert}) {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         success: (data) => {
-          allowAlert({typeMassage:"info" ,massage:"The list has been successfully deleted" , toOpen:true})
+          displayAlertToTheUser({typeMassage:"info" ,massage:"The list has been successfully deleted" , toOpen:true})
           getList();
         },
       });
@@ -42,7 +42,7 @@ export default function Home({ PORT_SERVER , allowAlert}) {
   return (
     <div className="homePage">
       {lists.map((category) => (
-        <CardCategory category={category} key={category._id} onClickEvent={deleteLink}/>
+        <CardCategory category={category} key={category._id} onClickEvent={deleteLink} displayAlertToTheUser={displayAlertToTheUser}/>
       ))}
     </div>
   );

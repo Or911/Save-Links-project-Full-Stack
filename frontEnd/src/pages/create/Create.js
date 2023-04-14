@@ -2,7 +2,7 @@ import './Create.css'
 import { useState } from "react"
 import $ from 'jquery'
 
-export default function Create ({PORT_SERVER , allowAlert}) {
+export default function Create ({PORT_SERVER , displayAlertToTheUser}) {
     const [dataInput , setDataInput] = useState({name:null , url:null,category:null})
 
 
