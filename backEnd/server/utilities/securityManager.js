@@ -30,7 +30,6 @@ const addUser = function (req) {
     password: bcrypt.hashSync(req.body.password, salt)
   });
   user.save().then((user) => {
-    console.log(user + "added to db");
   });
 };
 
